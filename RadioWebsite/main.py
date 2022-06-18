@@ -8,26 +8,20 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    print('WEEEE')
 
     if request.method == 'POST':
-        print("WEEEEWEWEW" + request.form("form_input"))
+        req = request.get_json()
+        main(req[0]['value'])
 
     return render_template("index.html")
 
 
-# @app.route('/', methods=['POST'])
-# def download_Convert_Video():
-#     print("WEEEEWEWEW"+request.form("form_input"))
-#     return True
-
-
-def main():
+def main(url):
     # get current working directory
     cwd = os.getcwd()
     downloadDirectory = r"{}\music".format(cwd)
 
-    video_object = YouTube('https://www.youtube.com/watch?v=NtzDjNhPZgU&ab_channel=ClearCode')
+    video_object = YouTube(url)
 
     # highest resolution audio (formatted as .mp4)
     audio = video_object.streams.get_audio_only()
@@ -47,5 +41,4 @@ def main():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    # main()
+    app.run()
