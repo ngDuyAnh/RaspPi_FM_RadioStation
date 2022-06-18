@@ -1,0 +1,134 @@
+html
+{
+    height: 100vh;
+    overflow: auto;
+
+}
+body
+{
+    /*background: rgb(1,7,22);*/
+    /*background-image: linear-gradient(to right, red , yellow);*/
+    height: 100%;
+    /*background-image: url("Folder/radio-fm.svg");*/
+    background: rgb(45, 54, 58);
+    background-image: linear-gradient(to top, rgb(1,7,22), rgb(45, 54, 58));
+
+    /*background: linear-gradient(45deg, #dca 12%, transparent 0, transparent 88%, #dca 0),*/
+    /*linear-gradient(135deg, transparent 37%, #a85 0, #a85 63%, transparent 0),*/
+    /*linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 0) #753;*/
+    /*background-size: 100px 100px;*/
+
+    background-color: #313131;
+    opacity: 1;
+    background-image:  linear-gradient(30deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(150deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(30deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(150deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(60deg, #00000077 25%, transparent 25.5%, transparent 75%, #00000077 75%, #00000077), linear-gradient(60deg, #00000077 25%, transparent 25.5%, transparent 75%, #00000077 75%, #00000077);
+    background-size: 30px 53px;
+    background-position: 0 0, 0 0, 15px 26px, 15px 26px, 0 0, 15px 26px;
+
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
+    /*background-size: cover;*/
+    /*background-position: center center;*/
+    /*position: relative;*/
+    /*overflow-y: auto;*/
+
+}
+
+#selection_Holder
+{
+    min-height: 500px;
+    min-width: 500px;
+    height: 75vmin;
+    width: 75vmin;
+    background-color: rgba(244, 213, 141, 0.8);
+    /*background-repeat: no-repeat;*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5vmin;
+    box-shadow: 0px 0px 10px 3px rgba(244, 213, 141, 0.8);
+}
+
+#link_select
+{
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    transform: translate(-50%,0);
+}
+
+table
+{
+    position: absolute;
+    width: 80%;
+    /*background: blue;*/
+}
+
+.link_Label
+{
+    position: relative;
+    height: 100%;
+    /*background: black;*/
+    left: 50%;
+    transform: translate(-50%,0);
+
+}
+.link_Input
+{
+    position: relative;
+    min-width: 400px;
+    min-height: 35px;
+    width: 60vmin;
+    height: 5.25vmin;
+    border-radius: 5px;
+    margin: 40px 0px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    /*justify-content: center;*/
+}
+
+.submit_Button
+{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    background: #930000;
+    border-color: transparent;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.submit_Button:hover
+{
+    background: #ff7d7d;
+}
+
+.submit_Button:active{
+    background: #7a7070;
+}
+
+.Uploads
+{
+    position: relative;
+    min-width: 400px;
+    min-height: 300px;
+    width: 60vmin;
+    height: 45vmin;
+    left: 50%;
+    transform: translate(-50%,0);
+    border-radius: 12px;
+    margin: 0px 0px 10px 0px;
+    box-shadow: 0px 0px 30px 3px rgb(45, 54, 58,0.7);
+    background-size: cover;
+    background: rgb(45, 54, 58, 0.7) url("podcast-line.svg") no-repeat fixed center center;
+
+}
+
+.radio_Img
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*background-image: url("Folder/radio-fm.svg");*/
+}
