@@ -39,6 +39,8 @@ def main(url):
         downloadDirectory, newfilename)
     subprocess.run(cmd.split())
 
+    os.remove(os.path.join(downloadDirectory, filename))
+
 
 if __name__ == '__main__':
     app.run()
