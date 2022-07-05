@@ -24,7 +24,7 @@ def main(url):
     # get current working directory
     print("Music folder")
     cwd = os.getcwd()
-    downloadDirectory = r"{}\music".format(cwd)
+    downloadDirectory = r"{}/music".format(cwd)
 
     # Get the youtube video object
     video_object = YouTube(url)
@@ -41,11 +41,11 @@ def main(url):
     newfilename = "Converted" + ".wav"
 
     # run the ffmpeg cmd to convert to a specific .wav file
-    cmd = "ffmpeg -i " + os.path.join(downloadDirectory,
+    cmd = "ffmpeg -y -i " + os.path.join(downloadDirectory,
                                       filename) + " -f wav -bitexact -acodec pcm_s16le -ar 22050 -ac 1 " + os.path.join(
         downloadDirectory, newfilename)
     subprocess.run(cmd.split())
-    print("Convert .wav")
+    print("Convert.wav")
 
     os.remove(os.path.join(downloadDirectory, filename))
 
