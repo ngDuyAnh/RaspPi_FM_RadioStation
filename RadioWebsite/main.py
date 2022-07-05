@@ -6,7 +6,6 @@ import os
 import subprocess
 from pytube import YouTube
 
-# Global variable dictionary
 audioProcess = None # The radio audio process
 
 app = Flask(__name__)
@@ -26,6 +25,9 @@ def home():
 
 
 def main(url):
+    # Global variable
+    global audioProcess
+
     # get current working directory
     print("Music folder")
     cwd = os.getcwd()
@@ -53,9 +55,7 @@ def main(url):
     print("Convert.wav")
 
     # Turn off the current transition
-    # noinspection PyUnresolvedReferences
     if audioProcess is not None:
-        # noinspection PyUnresolvedReferences
         audioProcess.kill()
         audioProcess = None
 
@@ -67,4 +67,5 @@ def main(url):
     os.remove(os.path.join(downloadDirectory, filename))
 
 if __name__ == '__main__':
+    # Run the application
     app.run()
