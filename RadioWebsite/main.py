@@ -6,10 +6,10 @@ from pytube import YouTube
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'OPTIONS'])
 def home():
 
-    if request.method == 'POST':
+    if request.method == 'OPTIONS':
         req = request.get_json()
         main(req[0]['value'])
 
