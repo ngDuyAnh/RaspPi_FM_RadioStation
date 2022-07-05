@@ -28,10 +28,10 @@ def main(url):
     audio = video_object.streams.get_audio_only()
 
     file = video_object.streams.filter(only_audio=True)
-    audio.download(filename="file.mp4", output_path=downloadDirectory)
+    audio.download(filename="file", output_path=downloadDirectory)
 
     # file names
-    filename = "file.mp4"
+    filename = "file"
     newfilename = "Converted_" + filename + ".wav"
 
     # run the ffmpeg cmd to convert to a specific .wav file
