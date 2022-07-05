@@ -21,17 +21,18 @@ def main(url):
     cwd = os.getcwd()
     downloadDirectory = r"{}\music".format(cwd)
 
+    # Get the youtube video object
     video_object = YouTube(url)
 
     # highest resolution audio (formatted as .mp4)
     audio = video_object.streams.get_audio_only()
 
     file = video_object.streams.filter(only_audio=True)
-    audio.download(filename=audio.default_filename.replace(" ", "_"), output_path=downloadDirectory)
+    audio.download(filename="file", output_path=downloadDirectory)
 
     # file names
-    filename = audio.default_filename.replace(" ", "_")
-    newfilename = "Converted_" + filename.split(".")[0] + ".wav"
+    filename = "file"
+    newfilename = "Converted_" + filename + ".wav"
 
     # run the ffmpeg cmd to convert to a specific .wav file
     cmd = "ffmpeg -i " + os.path.join(downloadDirectory,
@@ -40,7 +41,6 @@ def main(url):
     subprocess.run(cmd.split())
 
     os.remove(os.path.join(downloadDirectory, filename))
-
 
 if __name__ == '__main__':
     app.run()
