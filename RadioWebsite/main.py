@@ -22,6 +22,7 @@ def home():
 
 def main(url):
     # get current working directory
+    print("Music folder")
     cwd = os.getcwd()
     downloadDirectory = r"{}\music".format(cwd)
 
@@ -33,6 +34,7 @@ def main(url):
 
     file = video_object.streams.filter(only_audio=True)
     audio.download(filename="file", output_path=downloadDirectory)
+    print("Download music in MP4")
 
     # file names
     filename = "file"
@@ -43,6 +45,7 @@ def main(url):
                                       filename) + " -f wav -bitexact -acodec pcm_s16le -ar 22050 -ac 1 " + os.path.join(
         downloadDirectory, newfilename)
     subprocess.run(cmd.split())
+    print("Convert .wav")
 
     os.remove(os.path.join(downloadDirectory, filename))
 
