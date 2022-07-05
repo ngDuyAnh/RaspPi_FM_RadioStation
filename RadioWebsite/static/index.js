@@ -19,7 +19,7 @@ $(document).ready(function()
         // Send POST request to the Flask server with the body as the field values in JSON format
         const val = async ()=>{
             const response = await fetch('http://192.168.0.19:5000', {
-                method: 'OPTIONS',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
