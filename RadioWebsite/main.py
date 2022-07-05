@@ -32,7 +32,7 @@ def main(url):
 
     # file names
     filename = "file"
-    newfilename = "Converted_" + filename + ".wav"
+    newfilename = "Converted" + ".wav"
 
     # run the ffmpeg cmd to convert to a specific .wav file
     cmd = "ffmpeg -i " + os.path.join(downloadDirectory,
