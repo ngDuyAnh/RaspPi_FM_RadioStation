@@ -11,6 +11,9 @@ def home():
 
     if request.method == 'OPTIONS':
         req = request.get_json()
+        print(type(req))
+        print(req)
+        print(req[0])
         main(req[0]['value'])
 
     return render_template("index.html")
