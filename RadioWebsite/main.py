@@ -1,8 +1,13 @@
+import signal
+
 from flask import Flask, render_template, request
 from flask_cors import CORS
 import os
 import subprocess
 from pytube import YouTube
+
+# Global variable dictionary
+audioProcess = None # The radio audio process
 
 app = Flask(__name__)
 CORS(app)
@@ -47,6 +52,18 @@ def main(url):
     subprocess.run(cmd.split())
     print("Convert.wav")
 
+    # Turn off the current transition
+    # noinspection PyUnresolvedReferences
+    if audioProcess is not None:
+        # noinspection PyUnresolvedReferences
+        audioProcess.kill()
+        audioProcess = None
+
+    # Playing the converted file
+    audioCommand = "sudo ./fm_transmitter -f 106.0 " + newfilename
+    audioProcess = subprocess.Popen(audioCommand, stdout=subprocess.PIPE, shell=True)
+
+    # Remove the MP4 file
     os.remove(os.path.join(downloadDirectory, filename))
 
 if __name__ == '__main__':
