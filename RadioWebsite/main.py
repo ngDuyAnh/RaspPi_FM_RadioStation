@@ -60,8 +60,8 @@ def main(url):
         audioProcess = None
 
     # Playing the converted file
-    audioCommand = "sudo ./fm_transmitter -r -f 108.0 " + newfilename
-    audioProcess = subprocess.Popen(audioCommand, stdout=subprocess.PIPE, shell=True)
+    audioCommand = "./fm_transmitter -r -f 108.0 " + newfilename
+    audioProcess = subprocess.Popen(audioCommand)
 
     # Remove the MP4 file
     os.remove(os.path.join(downloadDirectory, filename))
