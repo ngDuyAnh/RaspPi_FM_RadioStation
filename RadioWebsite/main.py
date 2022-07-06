@@ -33,6 +33,7 @@ def main(url):
     cwd = os.getcwd()
     downloadDirectory = r"{}/music".format(cwd)
 
+    '''
     # Get the youtube video object
     video_object = YouTube(url)
 
@@ -42,17 +43,20 @@ def main(url):
     file = video_object.streams.filter(only_audio=True)
     audio.download(filename="file", output_path=downloadDirectory)
     print("Download music in MP4")
+    '''
 
     # file names
     filename = "file"
     newfilename = "Converted" + ".wav"
 
+    '''
     # run the ffmpeg cmd to convert to a specific .wav file
     cmd = "ffmpeg -y -i " + os.path.join(downloadDirectory,
                                       filename) + " -f wav -bitexact -acodec pcm_s16le -ar 22050 -ac 1 " + os.path.join(
         downloadDirectory, newfilename)
     subprocess.run(cmd.split())
     print("Convert.wav")
+    '''
 
     # Turn off the current transition
     if audioProcess is not None:
@@ -60,7 +64,7 @@ def main(url):
         audioProcess = None
 
     # Playing the converted file
-    audioCommand = "./fm_transmitter -r -f 108.0 " + downloadDirectory + "/" + newfilename
+    audioCommand = "sudo ./fm_transmitter -r -f 108.0 " + "music/" + newfilename
     audioProcess = subprocess.Popen(audioCommand)
 
     # Remove the MP4 file
